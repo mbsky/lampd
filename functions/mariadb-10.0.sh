@@ -9,12 +9,12 @@ cd $lnmp_dir/src
 . ../functions/check_os.sh
 . ../options.conf
 
-src_url=https://downloads.mariadb.org/f/mariadb-10.0.14/source/mariadb-10.0.14.tar.gz && Download_src 
+src_url=https://downloads.mariadb.org/f/mariadb-10.0.15/source/mariadb-10.0.15.tar.gz && Download_src 
 
 useradd -M -s /sbin/nologin mysql
 mkdir -p $mariadb_data_dir;chown mysql.mysql -R $mariadb_data_dir
-tar zxf mariadb-10.0.14.tar.gz
-cd mariadb-10.0.14
+tar zxf mariadb-10.0.15.tar.gz
+cd mariadb-10.0.15
 if [ "$je_tc_malloc" == '1' ];then
 	EXE_LINKER="-DCMAKE_EXE_LINKER_FLAGS='-ljemalloc'"
 elif [ "$je_tc_malloc" == '2' ];then
@@ -55,7 +55,7 @@ chkconfig mysqld on'
 OS_Debian_Ubuntu='update-rc.d mysqld defaults'
 OS_command
 cd ..
-/bin/rm -rf mariadb-10.0.14 
+/bin/rm -rf mariadb-10.0.15 
 cd ..
 
 # my.cf
