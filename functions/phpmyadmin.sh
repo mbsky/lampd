@@ -23,7 +23,7 @@ cd ..
 $mysql_install_dir/bin/mysql -uroot -p$dbrootpwd <<EOF
 CREATE DATABASE phpmyadmin;
 USE phpmyadmin;
-source $home_dir/default/phpMyAdmin/examples/create_tables.sql;
+source /home/wwwroot/default/phpMyAdmin/examples/create_tables.sql;
 flush privileges;
 exit
 EOF
