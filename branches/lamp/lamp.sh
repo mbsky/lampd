@@ -756,8 +756,15 @@ function install_phpmyadmin(){
         chmod -R 755 /data/www/default/phpmyadmin
         mkdir -p /data/www/default/phpmyadmin/upload/
         mkdir -p /data/www/default/phpmyadmin/save/
-		sed -i "s@blowfish_secret.*@blowfish_secret'\] = '"$HOSTNAME"."$RANDOM"';@" $home_dir/default/phpMyAdmin/config.inc.php
-		sed -i "s@controlpass.*@controlpass'\] = '"$dbrootpwd"';@" $home_dir/default/phpMyAdmin/config.inc.php
+		sed -i "s@blowfish_secret.*@blowfish_secret'\] = '"$HOSTNAME"."$RANDOM"';@" /data/www/default/phpmyadmin/config.inc.php
+		sed -i "s@controlpass.*@controlpass'\] = '"$dbrootpwd"';@" /data/www/default/phpmyadmin/config.inc.php
+		iptables -I INPUT -p tcp --dport 21 -j ACCEPT
+		iptables -I INPUT -p tcp --dport 22 -j ACCEPT
+		iptables -I INPUT -p tcp --dport 25 -j ACCEPT
+		iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+		iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
+		service iptables save
+		service iptables restart
         chown -R apache:apache /data/www/default
         echo "${phpMyAdminVersion} Install completed!"
     else
