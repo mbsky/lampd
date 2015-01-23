@@ -9,12 +9,12 @@
  *
  * @package PhpMyAdmin
  */
-
+ 
 /*
  * This is needed for cookie based authentication to encrypt password in
  * cookie
  */
-$cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+$cfg['blowfish_secret'] = 'cookiebya950216t'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
 /*
  * Servers configuration
@@ -31,6 +31,8 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
+/* Select mysqli if your server has it */
+$cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 
 /*
@@ -54,6 +56,7 @@ $cfg['Servers'][$i]['column_info'] = 'pma__column_info';
 $cfg['Servers'][$i]['history'] = 'pma__history';
 $cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
 $cfg['Servers'][$i]['tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['designer_coords'] = 'pma__designer_coords';
 $cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
 $cfg['Servers'][$i]['recent'] = 'pma__recent';
 $cfg['Servers'][$i]['favorite'] = 'pma__favorite';
@@ -72,8 +75,8 @@ $cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
 /*
  * Directories for saving/loading files from server
  */
-$cfg['UploadDir'] = '';
-$cfg['SaveDir'] = '';
+$cfg['UploadDir'] = 'upload';
+$cfg['SaveDir'] = 'save';
 $cfg['Servers'][$i]['hide_db'] = '(information_schema|mysql|performance_schema|phpmyadmin|ftpusers)';
 /**
  * Whether to display icons or text or both icons and text in table row
@@ -98,10 +101,10 @@ $cfg['Servers'][$i]['hide_db'] = '(information_schema|mysql|performance_schema|p
 /**
  * disallow editing of binary fields
  * valid values are:
- *   false    allow editing
- *   'blob'   allow editing except for BLOB fields
+ *   false  allow editing
+ *   'blob' allow editing except for BLOB fields
  *   'noblob' disallow editing except for BLOB fields
- *   'all'    disallow editing
+ *   'all'  disallow editing
  * default = blob
  */
 //$cfg['ProtectBinary'] = 'false';
@@ -113,7 +116,7 @@ $cfg['Servers'][$i]['hide_db'] = '(information_schema|mysql|performance_schema|p
  * default = 'en'
  */
 //$cfg['DefaultLang'] = 'en';
-//$cfg['DefaultLang'] = 'de';
+$cfg['DefaultLang'] = 'zh_CN';
 
 /**
  * default display direction (horizontal|vertical|horizontalflipped)
