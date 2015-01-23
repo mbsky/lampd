@@ -373,7 +373,7 @@ function install_apache(){
 		cp $cur_dir/conf/phpsysinfo.ini /data/www/default/phpsysinfo/phpsysinfo.ini
 		cp $cur_dir/conf/vpsinfo.php /data/www/default/vpsinfo.php
 		cp $cur_dir/conf/sysinfo.php /data/www/default/sysinfo.php
-		chmod -R www.www /data/www
+		chown -R apache.apache /data/www
 		cd /var/log
         echo "${ApacheVersion} Install completed!"
     else
