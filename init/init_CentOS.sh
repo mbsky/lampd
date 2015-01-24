@@ -25,11 +25,6 @@ cat >> /etc/fstab << EOF
 EOF
 fi
 
-src_url=http://lampd.googlecode.com/svn/src/yum-3.4.3.tar.gz && Download_src
-tar zxf yum-3.4.3.tar.gz
-cd yum-3.4.3
-./yummain.py install yum -y
-cd ..
 sed -i 's@^exclude@#exclude@' /etc/yum.conf
 yum clean all
 
