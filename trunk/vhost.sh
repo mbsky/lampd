@@ -215,6 +215,7 @@ Create_nginx_conf()
 cat > $web_install_dir/conf/vhost/$domain.conf << EOF
 server {
 listen 80;
+#listen [::]:80;
 server_name $domain$moredomainame;
 $N_log
 index index.html index.htm index.jsp index.php;
@@ -337,6 +338,7 @@ Create_nginx_apache_conf()
 cat > $web_install_dir/conf/vhost/$domain.conf << EOF
 server {
 listen 80;
+#listen [::]:80;
 server_name $domain$moredomainame;
 $N_log
 index index.html index.htm index.jsp index.php;
