@@ -8,10 +8,10 @@ cd $lnmp_dir/src
 . ../functions/download.sh 
 . ../options.conf 
 
-src_url=http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.3.7/phpMyAdmin-4.3.7-all-languages.tar.gz && Download_src
+src_url=http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.3.8/phpMyAdmin-4.3.8-all-languages.tar.gz && Download_src
 
-tar xzf phpMyAdmin-4.3.7-all-languages.tar.gz
-/bin/mv phpMyAdmin-4.3.7-all-languages $home_dir/default/phpMyAdmin
+tar xzf phpMyAdmin-4.3.8-all-languages.tar.gz
+/bin/mv phpMyAdmin-4.3.8-all-languages $home_dir/default/phpMyAdmin
 /bin/cp $lnmp_dir/conf/config.inc.php $home_dir/default/phpMyAdmin/config.inc.php
 mkdir $home_dir/default/phpMyAdmin/{upload,save}
 sed -i "s@blowfish_secret.*@blowfish_secret'\] = '"$HOSTNAME"."$RANDOM"';@" $home_dir/default/phpMyAdmin/config.inc.php
