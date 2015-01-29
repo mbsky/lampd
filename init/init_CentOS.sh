@@ -87,7 +87,7 @@ do
 	yum -y install $Package
 done
 
-yum -y update bash openssl
+yum -y update bash openssl glibc
 yum -y groupinstall "Development Tools"
 
 # use gcc-4.4
