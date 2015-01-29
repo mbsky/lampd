@@ -21,6 +21,13 @@ printf "
 cd src
 . ../functions/download.sh
 
+if [ -n "`grep 'CentOS release 6' /etc/redhat-release`" ];then
+		echo -e "\033[31mYou can install this VPN. \033[0m"
+else
+        echo -e "\033[31mDoes not support this OS, Please contact the author! \033[0m"
+        exit 1
+fi
+
 VPN_IP=`../functions/get_public_ip.py`
 
 while :
